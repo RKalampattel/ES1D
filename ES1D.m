@@ -1,4 +1,4 @@
-%% 1D Electrostatic PIC algorithm
+% 1D Electrostatic PIC code
 % Script to solve the two stream instability problem, based on code by 
 % Brieda (https://www.particleincell.com/2015/two-stream-instability/), in 
 % turn based on Birdsall (Plasma Physics via Computer Simulation)
@@ -6,8 +6,9 @@
 % Rahul Kalampattel, 15/06/2017
 
 close all; clearvars; clc
-
-%% Setup
+% =========================================================================== %
+% Setup
+% =========================================================================== %
 
 % Constants
 qm = -1;        % Charge to mass ratio
@@ -27,7 +28,9 @@ dt = 0.1;       % Time step
 tMax = 501;  	% Max number of iterations in main loop
 tol = 1e-6;     % Tolerance for potential solver
 
-%% Initialise simulation
+% =========================================================================== %
+% Initialise simulation
+% =========================================================================== %
 
 q = wp^2*(1/qm)*e0*L/(0.5*np);  % Charge (mistake in Brieda, factor of 0.5 not needed?)
 m = q/qm;                       % Mass
@@ -72,7 +75,9 @@ colors = zeros(1,np);
 colors(2:2:end)=1;
 filename = 'testAnimated.gif';
 
-%% Main loop
+% =========================================================================== %
+% Main loop
+% =========================================================================== %
 
 while t<tMax
     rho = zeros(1,N);   % Clear the charge density vector
@@ -187,17 +192,17 @@ while t<tMax
         axis([0,N,-1,1])
         drawnow
         
-%         % Capture the plot as an image
-%         frame = getframe(fig);
-%         im = frame2im(frame);
-%         [imind,cm] = rgb2ind(im,256);
-%         
-%         % Write to the GIF File
-%         if t == 0
-%             imwrite(imind,cm,filename,'gif', 'Loopcount',inf);
-%         else
-%             imwrite(imind,cm,filename,'gif','WriteMode','append');
-%         end
+        % Capture the plot as an image
+        frame = getframe(fig);
+        im = frame2im(frame);
+        [imind,cm] = rgb2ind(im,256);
+        
+        % Write to the GIF File
+        if t == 0
+            imwrite(imind,cm,filename,'gif', 'Loopcount',inf);
+        else
+            imwrite(imind,cm,filename,'gif','WriteMode','append');
+        end
         
         % Calculate field quantities
         EK = 0.5*sum(m*particles(2,:).*particles(2,:)); % Kinetic energy
