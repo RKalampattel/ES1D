@@ -1,7 +1,9 @@
 #pragma once
 
-/*
-The Field class
+/*!
+The Field class has three member variables representing the charge density, potential
+and electric field. The second constructor is used to initialise these values, while
+the two other member functions are used to clear the rho and phi vectors. 
 */
 
 #include "Parameters.h"
@@ -9,12 +11,12 @@ The Field class
 class Field
 {
 public:
-	vector<double> rho;	// Charge density
-	vector<double> phi;	// Potential
-	vector<double> E;	// Electric field
+	vector<double> rho;	//!< Charge density vector
+	vector<double> phi;	//!< Potential vector
+	vector<double> E;	//!< Electric field vector
 
-	Field() {};
-	Field(Parameters inputs);
-	void clearRho();
-	void clearPhi();
+	Field() {};					//!< Default constructor
+	Field(Parameters inputs);	//!< Second constructor
+	void clearRho();			//!< Clear the rho vector
+	void clearPhi();			//!< Clear the phi vector
 };

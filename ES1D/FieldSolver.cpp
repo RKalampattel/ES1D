@@ -3,8 +3,10 @@
 
 FieldSolver::FieldSolver(Parameters inputs, Field *fields)
 {
+	//  Clear the potential vector
 	fields->clearPhi();
 
+	// Solve Poisson equation to find potential, using the GS method with SOR
 	for (int j = 1; j <= inputs.itMax; j++)
 	{
 		for (int i = 0; i < inputs.N - 1; i++)
@@ -17,6 +19,7 @@ FieldSolver::FieldSolver(Parameters inputs, Field *fields)
 				fields->phi[i] = inputs.SOR*0.5*(fields->phi[i - 1] + fields->phi[i + 1] + (fields->rho[i] / inputs.e0)*inputs.h*inputs.h) + (1 - inputs.SOR)*fields->phi[i];
 		}
 
+		// Check for convergence by evaluating residual of Poisson equation on internal nodes
 		if (j % 25 == 0)
 		{
 			double resSum = 0, residual = 0;
@@ -32,8 +35,10 @@ FieldSolver::FieldSolver(Parameters inputs, Field *fields)
 				break;
 		}
 	}
+	// Period BC at end points
 	fields->phi[inputs.N - 1] = fields->phi[0];
 
+	// Calculate electric field
 	for (int i = 0; i < inputs.N; i++)
 	{
 		if (i == 0)

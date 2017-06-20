@@ -5,12 +5,16 @@ Particle::Particle(Parameters inputs, double v0, double dx0)
 {
 	for (int i = 0; i < inputs.np; i++)
 	{
+		// Seed particles uniformly in domain
 		double x0 = (0.5 + i)*inputs.L / inputs.np;
 		double theta = 2 * pi*x0 / inputs.L;
+
+		// Offset from initial location
 		double dx = dx0*cos(theta);
 		double x1 = x0 + dx;
 		double x2 = x0 - dx;
 
+		// Check if particles are still in the simulation domain, load x and v vectors
 		if (x1 < 0) 
 			x1 += inputs.L;
 		if (x1 >= inputs.L)

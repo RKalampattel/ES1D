@@ -1,7 +1,9 @@
 #pragma once
 
-/*
-The FieldSolver class
+/*!
+The FieldSolver class is used to solve the Poisson equation and find the potential and 
+electric field at each time step. The Gauss-Seidel method with successive over-relaxation
+is used.
 */
 
 #include "Field.h"
@@ -9,5 +11,5 @@ The FieldSolver class
 class FieldSolver
 {
 public:
-	FieldSolver(Parameters inputs, Field *fields);
+	FieldSolver(Parameters inputs, Field *fields);	//!< Constructor
 };

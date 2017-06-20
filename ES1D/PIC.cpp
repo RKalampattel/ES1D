@@ -3,7 +3,7 @@
 
 PIC::PIC(Parameters inputs, double v0, double dx0)
 {
-	t = 0;
+	t = 0;	// Initial time
 	Particle particles(inputs, v0, dx0);
 	Field fields(inputs);
 
@@ -21,6 +21,7 @@ PIC::PIC(Parameters inputs, double v0, double dx0)
 		// Move the particles and apply boundary conditions
 		ParticlePusher pusher(inputs, &particles, &fields, t);
 
+		// Calculate kinetic and potential energies
 		if (t % 5 == 0)
 		{
 			double EK = 0, EP = 0;
@@ -29,12 +30,12 @@ PIC::PIC(Parameters inputs, double v0, double dx0)
 			for (int i = 0; i < inputs.N; i++)
 				EP += 0.5*fields.rho[i] * fields.phi[i];
 
-			cout << "Timestep: " << t << endl;
+			cout << "Time step: " << t << endl;
 			cout << "EK: " << EK << endl;
 			cout << "EP: " << EP << endl;
 		}
 
-		t += 1;
+		t += 1;	// Update time
 	}
 	cout << "Simulation complete!" << endl;
 }

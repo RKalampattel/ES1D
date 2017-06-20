@@ -33,14 +33,14 @@ int main()
 	double SOR = 1.8;	// Successive over-relaxation parameter
 
 	// Initialisation parameters
-	int nCell = 20;		// Numer of particles (per species) per cell
+	int nCell = 20;		// Number of particles (per species) per cell
 	double v0 = 1;		// Initial velocity
 	double dx0 = 1e-4;	// Perturbation factor
 
 	// Create an instance of the Parameters class to initialise simulation
 	Parameters inputs(qm, wp, e0, L, N, dt, tMax, tol, itMax, SOR, nCell);
 
-	// Run simulation by creating an instance of the PIC class
+	// Create an instance of the PIC class to run the simulation
 	PIC ES1D(inputs, v0, dx0);
 
 	system("pause");

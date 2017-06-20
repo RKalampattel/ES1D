@@ -1,7 +1,8 @@
 #pragma once
 
-/*
-The ChargeProjector class contains methods to 
+/*!
+The ChargeProjector class is used to find charge at grid nodes in the PIC simulation, 
+and use this to calculate the charge density.
 */
 
 #include "Field.h"
@@ -10,5 +11,5 @@ The ChargeProjector class contains methods to
 class ChargeProjector
 {
 public:
-	ChargeProjector(Parameters inputs, Particle *particles, Field *fields);
+	ChargeProjector(Parameters inputs, Particle *particles, Field *fields);	//!< Constructor
 };
