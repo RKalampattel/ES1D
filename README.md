@@ -1,3 +1,6 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/hu6jpwhl9m6q8dc8?svg=true)](https://ci.appveyor.com/project/RKalampattel/es1d)
+
+
 # ES1D
 
 An electrostatic 1D particle-in-cell (PIC) code. The code is based on [work done by Lubos Brieda](https://www.particleincell.com/2015/two-stream-instability/) in Javascript, however it has been converted to both Matlab and C++. 
