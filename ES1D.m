@@ -6,9 +6,9 @@
 % Rahul Kalampattel, 15/06/2017
 
 close all; clearvars; clc
-% =========================================================================== %
+% ======================================================================== %
 % Setup
-% =========================================================================== %
+% ======================================================================== %
 
 % Constants
 qm = -1;        % Charge to mass ratio
@@ -28,9 +28,9 @@ dt = 0.1;       % Time step
 tMax = 501;  	% Max number of iterations in main loop
 tol = 1e-6;     % Tolerance for potential solver
 
-% =========================================================================== %
+% ======================================================================== %
 % Initialise simulation
-% =========================================================================== %
+% ======================================================================== %
 
 q = wp^2*(1/qm)*e0*L/(0.5*np);  % Charge (mistake in Brieda, factor of 0.5 not needed?)
 m = q/qm;                       % Mass
@@ -75,9 +75,9 @@ colors = zeros(1,np);
 colors(2:2:end)=1;
 filename = 'testAnimated.gif';
 
-% =========================================================================== %
+% ======================================================================== %
 % Main loop
-% =========================================================================== %
+% ======================================================================== %
 
 while t<tMax
     rho = zeros(1,N);   % Clear the charge density vector
@@ -102,7 +102,6 @@ while t<tMax
     % Calculate the charge density
     rho = rho/h;
     rho(abs(rho)<1e-10) = 0;  % Remove some noise
-    
     
     % Solve for potential (Poisson equation) using Gauss-Seidel method and 
     % central difference formula for second derivative

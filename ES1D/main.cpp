@@ -6,7 +6,7 @@ This program solves the two stream instability problem, based on code by Brieda
 Birdsall (Plasma Physics via Computer Simulation). This file is used to define 
 inputs to the program. 
 
-Rahul Kalampattel, 20/06/2017
+Rahul Kalampattel, 21/06/2017
 */
 
 #include "stdafx.h"
@@ -33,7 +33,7 @@ int main()
 	double SOR = 1.8;	// Successive over-relaxation parameter
 
 	// Initialisation parameters
-	int nCell = 20;		// Number of particles (per species) per cell
+	int nCell = 15;		// Number of particles (per species) per cell
 	double v0 = 1;		// Initial velocity
 	double dx0 = 1e-4;	// Perturbation factor
 

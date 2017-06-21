@@ -3,10 +3,10 @@
 
 Particle::Particle(Parameters inputs, double v0, double dx0)
 {
-	for (int i = 0; i < inputs.np; i++)
+	for (int i = 0; i < 0.5*inputs.np; i++)
 	{
 		// Seed particles uniformly in domain
-		double x0 = (0.5 + i)*inputs.L / inputs.np;
+		double x0 = (0.5 + i)*inputs.L / (0.5*inputs.np);
 		double theta = 2 * pi*x0 / inputs.L;
 
 		// Offset from initial location

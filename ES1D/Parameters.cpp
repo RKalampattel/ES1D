@@ -1,7 +1,8 @@
 #include "stdafx.h"
 #include "Parameters.h"
 
-Parameters::Parameters(double qmIn, double wp, double e0In, double LIn, int NIn, double dtIn, int tMaxIn, double tolIn, int itMaxIn, double SORIn, int nCell)
+Parameters::Parameters(double qmIn, double wp, double e0In, double LIn, int NIn, 
+	double dtIn, int tMaxIn, double tolIn, int itMaxIn, double SORIn, int nCell)
 {
 	// Set member constants
 	qm = qmIn;
@@ -25,7 +26,7 @@ Parameters::Parameters(double qmIn, double wp, double e0In, double LIn, int NIn,
 	np = 2*(N - 1)*nCell;
 
 	// Calculate other member variables
-	q = wp*wp*(1 / qm)*e0*L / (0.5*np);
+	q = wp*wp*(1 / qm)*e0*L / (0.25*np);
 	m = q / qm;
 	q0 = -q;
 }
