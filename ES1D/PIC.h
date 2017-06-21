@@ -11,6 +11,7 @@ are created.
 #include "FieldSolver.h"
 #include "ParticlePusher.h"
 #include <iostream>
+#include <fstream>
 
 class PIC
 {
